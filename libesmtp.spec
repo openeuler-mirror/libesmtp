@@ -2,7 +2,7 @@
 
 Name:           libesmtp
 Version:        1.0.6
-Release:        17
+Release:        18
 Summary:        A library for posting electronic mail
 License:        LGPLv2+
 
@@ -13,7 +13,7 @@ BuildRequires:  gcc openssl-devel pkgconfig autoconf automake libtool
 
 %description
 %{name} is an SMTP client which manages posting (or submission of) electronic
-mail via a preconfigured Mail Transport Agent (MTA). It may be used as part of 
+mail via a preconfigured Mail Transport Agent (MTA). It may be used as part of
 a Mail User Agent (MUA) or other program that must be able to post electronic
 mail where mail functionality may not be that program's primary purpose.
 
@@ -28,7 +28,7 @@ applications that want to make use of %{name}.
 
 %package_help
 
-%prep 
+%prep
 %autosetup -n %{name}-%{version} -p1
 
 autoreconf -fi
@@ -43,7 +43,7 @@ if pkg-config openssl ; then
 fi
 %configure --with-auth-plugin-dir=%{plugindir} --enable-pthreads \
   --enable-require-all-recipients --enable-debug \
-  --enable-etrn --disable-isoc --disable-more-warnings 
+  --enable-etrn --disable-isoc --disable-more-warnings
 make %{?_smp_mflags}
 cat << "EOF" > %{name}.pc
 prefix=%{_prefix}
@@ -74,7 +74,8 @@ install -p -m 644 -D %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS COPYING COPYING.LIB
+%license COPYING COPYING.LIB
+%doc AUTHORS
 %{_libdir}/%{name}.so.*
 %{plugindir}
 
@@ -87,10 +88,16 @@ install -p -m 644 -D %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 %{_libdir}/%{name}.a
 %{_prefix}/include/*.h
 
-%files help 
+%files help
 %defattr(-,root,root)
-%doc NEWS Notes README 
+%doc NEWS Notes README
 
 %changelog
+* Mon Oct 21 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.0.6-18
+- Type:enhancement
+- Id:NA
+- SUG:NA
+- DESC:modify the location of COPYING
+
 * Sun Sep 15 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.0.6-17
 - Package init
