@@ -2,13 +2,14 @@
 
 Name:           libesmtp
 Version:        1.0.6
-Release:        18
+Release:        19
 Summary:        A library for posting electronic mail
 License:        LGPLv2+
 
 URL:            https://www.stafford.uklinux.net/%{name}/
 Source:         https://www.stafford.uklinux.net/%{name}/%{name}-%{version}.tar.bz2
 Patch0:         libesmtp-1.0.6-openssl-1.1.patch
+Patch1:         CVE-2019-19977.patch
 BuildRequires:  gcc openssl-devel pkgconfig autoconf automake libtool
 
 %description
@@ -93,6 +94,12 @@ install -p -m 644 -D %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 %doc NEWS Notes README
 
 %changelog
+* Mon Apr 20 2020 openEuler Buildteam <buildteam@openeuler.org> - 1.0.6-19
+- Type:cves
+- ID:CVE-2019-19977
+- SUG:NA
+- DESC:remove ntlm_build_type_2() to fix CVE-2019-19977
+ 
 * Mon Oct 21 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.0.6-18
 - Type:enhancement
 - Id:NA
