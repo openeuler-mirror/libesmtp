@@ -1,0 +1,4 @@
+version_control: github
+src_repo: jbouse-debian/libesmtp
+tag_prefix: ^
+seperator: .
