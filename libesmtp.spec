@@ -2,12 +2,12 @@
 
 Name:           libesmtp
 Version:        1.0.6
-Release:        19
+Release:        20
 Summary:        A library for posting electronic mail
 License:        LGPLv2+
 
 URL:            https://www.stafford.uklinux.net/%{name}/
-Source:         https://www.stafford.uklinux.net/%{name}/%{name}-%{version}.tar.bz2
+Source:         https://pkgs.fedoraproject.org/repo/pkgs/libesmtp/libesmtp-1.0.6.tar.bz2/bf3915e627fd8f35524a8fdfeed979c8/libesmtp-1.0.6.tar.bz2
 Patch0:         libesmtp-1.0.6-openssl-1.1.patch
 Patch1:         CVE-2019-19977.patch
 BuildRequires:  gcc openssl-devel pkgconfig autoconf automake libtool
@@ -94,6 +94,12 @@ install -p -m 644 -D %{name}.pc %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 %doc NEWS Notes README
 
 %changelog
+* Fri Sep 11 2020 lunankun <lunankun@huawei.com> - 1.0.6-20
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:fix source0 url
+
 * Mon Apr 20 2020 openEuler Buildteam <buildteam@openeuler.org> - 1.0.6-19
 - Type:cves
 - ID:CVE-2019-19977
