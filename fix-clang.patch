@@ -1,0 +1,14 @@
+diff -u -r libesmtp-1.0.6/missing.h libesmtp-1.0.6/missing.h
+--- libesmtp-1.0.6/missing.h	2010-08-08 23:45:53.000000000 +0800
++++ libesmtp-1.0.6/missing.h	2023-06-28 12:47:30.000000000 +0800
+@@ -45,8 +45,10 @@
+ 
+ #ifndef HAVE_SNPRINTF
+ #include <sys/types.h>
++#ifndef snprintf
+ int snprintf(char *s, size_t n, const char *format, ...);
+ #endif
++#endif
+ 
+ #ifndef HAVE_VSNPRINTF
+ #include <stdarg.h>
